@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <!-- Twitter Card stuff (META)
+    <meta name="twitter:image:src" content="https://i.imgur.com/KTBr8mA.png" />
+    <meta name="twitter:site" content="@mlsc_tiet" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="I got this supercool swish badge, to get yours participate in Makeathon 4.0." />
+    <meta name="twitter:description" content="" />
+    <!-- ------------------ -->
+    <!-- <link rel="shortcut icon" href="Assets/Images/mlsc_shield_new.webp" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style1.css" /> --> -->
+    <link rel="stylesheet" href="style1.css"/>
+    <title>Get Your Badge</title>
+  </head>
+
+<body>
+
+    <!-- <a
+      id="mlh-trust-badge"
+      style="
+        display: block;
+        max-width: 100px;
+        min-width: 60px;
+        position: fixed;
+        right: 50px;
+        top: 0;
+        width: 10%;
+        z-index: 10000;
+      "
+      href="https://mlh.io/seasons/2022/events?utm_source=apac-hackathon&utm_medium=TrustBadge&utm_campaign=2022-season&utm_content=white"
+      target="_blank"
+      ><img
+        src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-white.svg"
+        alt="Major League Hacking 2022 Hackathon Season"
+        style="width: 90%"
+        class="mlh-badge"
+    /></a> -->
+
+
+  <!-- Body -->
+
+  <div id="content">
+    <div id="badge">
+      <div id="info">
+        <h2 id="main_heading">MAKEATHON5 BADGE</h2>
+        <p>
+          Participants can download and share the badge to get recognition for their collaboration, inspiration and creativity. Giving them a token that they can proudly share on their social media handles.
+        </p>
+      </div>
+      <form class="form">
+        <label for="name">
+          <h2 id="heading">NAME</h2>
+        </label>
+        <input type="text" class="form-control" id="name" name="name" required />
+        <label for="team-name">
+          <h2 id="heading">TEAM NAME</h2>
+        </label>
+        <input type="text" class="form-control" id="team-name" name="teamName" required />
+        <div id="align"><button class="btn btn-light subm">SUBMIT</button></div>
+      </form>
+      
+    </div>
+    <div id="photo">
+      <div class="rel-canvas">
+      <canvas id="mycvs2" width="1213px" height="829px"></canvas>
+      <canvas id="mycvs" width="1213px" height="829px"></canvas>
+      <img style="display: none"; width="100%" id="badgeImg" src="mlscbadges1.png">
+      </div>
+      <div class="action-buttons">
+        <button class="submit btn btn-light" id="down" style="visibility: hidden;">DOWNLOAD</button>
+        <button class="share btn btn-light" id="share" type="button" style="visibility: hidden;" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" >SHARE</button>
+      </div>
+      <blockquote class="quote">Share this badge on your social media handles and let people know about your great efforts! </blockquote>
+    </div>
+        
+    <div style="display:block">
+      
+    </div>
+    
+    <div>
+      
+    </div>
+    
+    <!-- Isse haath mat lagana :) -->
+    <!-- Pls :) -->
+
+  <!-- Share Modal -->
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel" style="color:white">Share Your Badge</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="loading-container">
+          <div class="spinner-grow loading text-danger" role="status"></div>
+          <div class="spinner-grow loading text-primary" role="status"></div>
+          <div class="spinner-grow loading text-warning" role="status"></div>
+          </div>
+          <image class="iframe" width="300px" src=""></image>
+          <div class="modal-share-btns">
+            <button class="btn btn-light linkedin" disabled data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Linkedin&nbsp;<img src="./Assets/Images/LI-In-Bug.png" alt="LinkedIn" width="20px"></button>
+            <button class="btn btn-light twitter" disabled data-bs-target="#exampleModalToggle3" data-bs-toggle="modal">Twitter&nbsp;<img src="./Assets/Images/2021 Twitter logo - blue.png" alt="Twitter" width="20px"> </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="../node_modules/confetti-js/dist/index.min.js"></script> 
+  <script src="Assets/js/confetti.min.js"></script>
+  <script src="Assets/js/main.js" type="module"></script> 
+  <script src="mlsc.js"></script>
+
+</body>
+
+</html>
+
+
+
+<!--  -->
