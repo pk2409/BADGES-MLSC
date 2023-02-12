@@ -64,64 +64,93 @@ window.onload = async function () {
   draw();
 };
 
-function download() {
-  /// create an "off-screen" anchor tag
-  var lnk = document.createElement("a"),
-    e;
+// function download() {
+//   /// create an "off-screen" anchor tag
+//   var lnk = document.createElement("a"),
+//     e;
 
-  if (
-    !(userName == "Name" || userName == "" || team == "Team Name" || team == "")
-  ) {
-    /// the key here is to set the download attribute of the a tag
-    lnk.download = userName + ":" + team + ".png";
+//   if (
+//     !(userName == "Name" || userName == "" || team == "Team Name" || team == "")
+//   ) {
+//     /// the key here is to set the download attribute of the a tag
+//     lnk.download = userName + ":" + team + ".png";
 
-    /// convert canvas content to data-uri for link. When download
-    /// attribute is set the content pointed to by link will be
-    /// pushed as "download" in HTML5 capable browsers
-    lnk.href = cvs.toDataURL("image/png;base64");
+//     /// convert canvas content to data-uri for link. When download
+//     /// attribute is set the content pointed to by link will be
+//     /// pushed as "download" in HTML5 capable browsers
+//     lnk.href = cvs.toDataURL("image/png;base64");
 
-    /// create a "fake" click-event to trigger the download
-    if (document.createEvent) {
-      e = document.createEvent("MouseEvents");
-      e.MouseEvent(
-        "click",
-        true,
-        true,
-        window,
-        0,
-        0,
-        0,
-        0,
-        0,
-        false,
-        false,
-        false,
-        false,
-        0,
-        null
-      );
+//     /// create a "fake" click-event to trigger the download
+//     if (document.createEvent) {
+//       e = document.createEvent("MouseEvents");
+//       e.MouseEvent(
+//         "click",
+//         true,
+//         true,
+//         window,
+//         0,
+//         0,
+//         0,
+//         0,
+//         0,
+//         false,
+//         false,
+//         false,
+//         false,
+//         0,
+//         null
+//       );
 
-      lnk.dispatchEvent(e);
-    } else if (lnk.fireEvent) {
-      lnk.fireEvent("onclick");
-    }
-  }
+//       lnk.dispatchEvent(e);
+//     } else if (lnk.fireEvent) {
+//       lnk.fireEvent("onclick");
+//     }
+//   }
+// }
+// async function downloadImage(mlscbadges1.png) {
+//   const image = await fetch(mlscbadges1.png)
+//   const imageBlog = await image.blob()
+//   const imageURL = URL.createObjectURL(imageBlog)
+
+//   const link = document.createElement('a')
+//   link.href = "https://i.imgur.com/KTBr8mA.png"
+//   link.download = 'image.png'
+//   document.body.appendChild(link)
+//   link.click()
+//   document.body.removeChild(link)
+// }
+// var download0 = function(){
+//   var link = document.createElement('a');
+//   link.href = document.getElementById('mycvs2').toDataURL();
+//   // link.download = "blah.png";
+//   // link.href = document.querySelectorAll("mycvs, mycvs2"); 
+//   console.log("this is working");
+//   // link.href = document.getElementById('mycvs2').toDataURL()
+//   link.click();
+// };
+var download = function(){
+  var canvas = document.getElementById("mycvs");
+  image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+  var link = document.createElement('a');
+  link.download = "my-image.png";
+  link.href = image;
+  link.click();
 }
-
 document.getElementById("down").addEventListener("click", (e) => {
   download();
 });
+
 console.log("it is working till here");
 
-function dataURItoBlob(dataURI) {
-  var byteString = atob(dataURI.split(",")[1]);
-  var ab = new ArrayBuffer(byteString.length);
-  var ia = new Uint8Array(ab);
-  for (var i = 0; i < byteString.length; i++) {
-    ia[i] = byteString.charCodeAt(i);
-  }
-  return new Blob([ab], { type: "image/png" });
-}
+// function dataURItoBlob(dataURI) {
+//   var byteString = atob(dataURI.split(",")[1]);
+//   var ab = new ArrayBuffer(byteString.length);
+//   var ia = new Uint8Array(ab);
+//   for (var i = 0; i < byteString.length; i++) {
+//     ia[i] = byteString.charCodeAt(i);
+//   }
+//   return new Blob([ab], { type: "image/png" });
+// }
 //Confetti config
 // const canvasTarget = document.getElementById("mycvs2");
 // const throwConfetti = () => {
@@ -145,7 +174,8 @@ shareBtn.addEventListener("click", async () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        file: cvs.toDataURL("image/png;base64"),
+        file: cvs.toDataURL("png;base64"),
+        // file: cvs.toDataURL("image/png;base64"),
         upload_preset: "jnrod77e",
       }),
     })
@@ -175,7 +205,7 @@ linkedin.addEventListener("click", () => {
   window.open(
     `https://www.linkedin.com/shareArticle?mini=true&url=${localStorage.getItem(
       "imgUrl"
-    )}&title=Share%20Your%20Badge`
+    )} &title=Share%20Your%20Badge`
   );
 });
 twitter.addEventListener("click", () => {
